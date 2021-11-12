@@ -138,7 +138,7 @@ execute if entity @s[scores={ecui.mode=10002}] run function ecui:restore/storage
 ## ecui.mode == null => ecui datapack導入後初めてエンダーチェストを開く => 普通のエンダーチェストとして使っているはずなのでvanillaにsave
 execute unless entity @s[scores={ecui.mode=-2147483648..2147483647}] run function ecui:save/vanilla
 
-execute if entity @s[scores={ecui.mode=1000}] run function ecui:save/vanilla
+execute if entity @s[scores={ecui.mode=10000}] run function ecui:save/vanilla
 ```
 
 
