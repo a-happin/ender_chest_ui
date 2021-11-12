@@ -79,31 +79,31 @@ ecui: {2: true, 8: true}
 ```mcfunction
 #> ecui:item/item_name/
 execute unless data storage ecui: cache.item_name run function ecui:item/item_name/impl
-data modify storage shulker_loot: Items append from storage ecui: cache.item_name
+data modify storage _ stack[-1].Items append from storage ecui: cache.item_name
 ```
 ```mcfunction
 #> ecui:item/item_name/impl
 #@within function ecui:item/item_name/
 
 ### initialize
-data remove storage shulker_loot: Item
+data remove storage _ stack[-1].Item
 
 ### id
-data modify storage shulker_loot: Item.id set value "minecraft:light_gray_stained_glass_pane"
+data modify storage _ stack[-1].Item.id set value "minecraft:light_gray_stained_glass_pane"
 ### Count
-data modify storage shulker_loot: Item.Count set value 1b
+data modify storage _ stack[-1].Item.Count set value 1b
 ### tag
-data modify storage shulker_loot: Item.tag.Enchantments set value [{}]
-data modify storage shulker_loot: Item.Name set value '{"text": "●何かが起きる", "color": "light_purple"}'
+data modify storage _ stack[-1].Item.tag.Enchantments set value [{}]
+data modify storage _ stack[-1].Item.Name set value '{"text": "●何かが起きる", "color": "light_purple"}'
 function shulker_loot:set_name/
-data modify storage shulker_loot: Item.Lore append value '{"text": "クリックすると"}'
-data modify storage shulker_loot: Item.Lore append value '{"text": "何かが起きる！！！"}'
+data modify storage _ stack[-1].Item.Lore append value '{"text": "クリックすると"}'
+data modify storage _ stack[-1].Item.Lore append value '{"text": "何かが起きる！！！"}'
 function shulker_loot:set_lore/
-data modify storage shulker_loot: Item.ecui_action_id set value 0
+data modify storage _ stack[-1].Item.ecui_action_id set value 0
 function ecui:core/convert_ecui_action_id_to_binary
 
 ### save to cache
-data modify storage ecui: cache.item_name set from storage shulker_loot: Item
+data modify storage ecui: cache.item_name set from storage _ stack[-1].Item
 ```
 
 ### アクションを追加する(例)
