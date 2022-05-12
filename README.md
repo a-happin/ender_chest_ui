@@ -67,7 +67,7 @@ This executes `/clear` every tick, which may result in low datapack performance.
 
 - action実行直前に呼ばれます
 - `score @s ender_chest_ui.mode`の値に応じて、適切な場所に`storage : _[-1].Items`を保存してください
-- Itemsにはaction発火用のアイテムは含まれません
+- Itemsにはaction発火用アイテムは含まれません
 
 ### action発火用アイテム
 
