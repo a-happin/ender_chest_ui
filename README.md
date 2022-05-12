@@ -26,38 +26,25 @@ This executes `/clear` every tick, which may result in low datapack performance.
 |rescue / アイテムレスキュー|Ender Chest UIがアイテムを消滅させないようにする処理|
 |保護機能|コンテンツセーフティとrescue|
 |遷移 / 遷移アクション|Ender Chest UIのモードを変更するアクション|
+|action発火用アイテム|Ender Chest UIに配置される特殊アイテム。クリックしたときにactionが発火するアイテム|
 
 ### Scores
 
 |score|description|
 |:--|:--|
-|ender_chest_ui.mode|現在のモード。0~65536|
+|ender_chest_ui.mode|現在のモード|
 |ender_chest_ui.action|実行するアクション。-1~65536|
-
-### アイテムに付与するカスタムタグの説明
-- `ender_chest_ui` (Object) -- このアイテムをクリックしたときに実行するアクションidを2進数表現で指定します。  
-```
-// 例:
-10
-ender_chest_ui: {2: true, 8: true}
-```
 
 ### Event Handler
 
-### `tag/function ender_chest_ui:save`
-
-- action実行直前に呼ばれます
-- `score @s ender_chest_ui.mode`の値に応じて、適切な場所に`storage : _[-1].Items`を保存してください
-- Itemsにはaction発火用のアイテムは含まれません
-
-### `tag/function ender_chest_ui:action`
+#### `tag/function ender_chest_ui:action`
 
 - アクションを実行するべきタイミングで呼ばれます
 - `score @s ender_chest_ui.action`の値に応じて、アクションを実行してください
 - 遷移アクションの場合は`score @s ender_chest_ui.mode`の値を変更してください
 - エンダーチェストを開いたときは`score @s ender_chest_ui.action == -1`です
 
-### `tag/function ender_chest_ui:restore`
+#### `tag/function ender_chest_ui:restore`
 
 - エンダーチェスト内にアイテムを配置するべきタイミングで呼ばれます
 - scoreboard `score @s ender_chest_ui.mode`の値に応じて`storage : _[-1].EnderItems`を更新し、エンダーチェスト内のアイテムも書き換えてください
@@ -69,9 +56,31 @@ ender_chest_ui: {2: true, 8: true}
   - shulker loot trickと[PlayerItemTuner](https://github.com/Ai-Akaishi/PlayerItemTuner)のような方法を選択できるようにするためです
 - `storage : _[-1].EnderItems`を書き換えなければならないのはプレイヤーNBTのシリアライズ処理を避けるためです
   - storageにアイテムを構築→shulker lootでコピー→`/data get entity @s EnderItems`で何を配置したか取得 は明らかに効率が悪い
+- 配置するアイテムはaction発火用アイテムかそれ以外
+  - 基本的にはaction発火用アイテムで埋めること
+  - action発火用アイテムが無いSlotはvanillaのエンダーチェストの機能のように振る舞うべき
 - おすすめの方法
   1. `storage : _[-1].EnderItems`を書き換える
   2. shulker loot trickを使ってエンダーチェストにアイテムを配置する
+
+#### `tag/function ender_chest_ui:save`
+
+- action実行直前に呼ばれます
+- `score @s ender_chest_ui.mode`の値に応じて、適切な場所に`storage : _[-1].Items`を保存してください
+- Itemsにはaction発火用のアイテムは含まれません
+
+### action発火用アイテム
+
+- アイテムのNBTに`ender_chest_ui`(Object)をつけると、action発火用アイテムになります
+- 2進数化したidを設定しておくと、クリックしたときにその数値のactionが発火します
+- 設定には`function ender_chest_ui:convert_ender_chest_ui_to_binary`が便利です
+
+```mcfunction
+data modify storage : _[-1].Item set value {id: "light_gray_stained_glass_pane", Count: 1b}
+data modify storage : _[-1].Item.tag.ender_chest_ui set value 1000
+function ender_chest_ui:convert_ender_chest_ui_to_binary
+# ==> Item: {id: "light_gray_stained_glass_pane", Count: 1b, tag: {ender_chest_ui: {512: 1b, 256: 1b, 128: 1b, 64: 1b, 32: 1b, 8: 1b}}}
+```
 
 ### メニュー用のアイテムの生成方法
 
@@ -101,40 +110,6 @@ execute if entity @s[scores={ender_chest_ui.mode=1}] run function example:ender_
 #> example:ender_chest_ui/save/
 #@within tag/function ender_chest_ui:save
 execute if entity @s[scores={ender_chest_ui.mode=1}] run function example:ender_chest_ui/save/vanilla_storage
-```
-
-### ender_chest_uiのアイテムを追加する(例)
-
-- アイテム生成処理は重いのでcacheが効くようにします
-
-```mcfunction
-#> example:ender_chest_ui/item/sample_item/
-#@within function example:ender_chest_ui/restore/**
-execute unless data storage ender_chest_ui: cache.sample_item run function example:ender_chest_ui/item/sample_item/impl
-data modify storage : _[-1].EnderItems append from storage ender_chest_ui: cache.sample_item
-```
-```mcfunction
-#> example:ender_chest_ui/item/sample_item/impl
-#@within function ender_chest_ui:item/sample_item/
-
-### initialize
-data remove storage : _[-1].Item
-
-### id
-data modify storage : _[-1].Item.id set value "minecraft:light_gray_stained_glass_pane"
-### Count
-data modify storage : _[-1].Item.Count set value 1b
-### tag
-data modify storage : _[-1].Item.tag.Enchantments set value [{}]
-data modify storage : _[-1].Item.tag.display.Name set value '{"text": "●何かが起きる", "color": "light_purple", "italic": false}'
-data modify storage : _[-1].Item.Lore append value '{"text": "クリックすると"}'
-data modify storage : _[-1].Item.Lore append value '{"text": "何かが起きる！！！"}'
-function shulker_loot:set_lore/
-data modify storage : _[-1].Item.ender_chest_ui_action_id set value 0
-function ender_chest_ui:convert_ender_chest_ui_to_binary
-
-### save to cache
-data modify storage ender_chest_ui: cache.sample_item set from storage : _[-1].Item
 ```
 
 ## Requirement
