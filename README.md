@@ -33,7 +33,7 @@ This executes `/clear` every tick, which may result in low datapack performance.
 |score|description|
 |:--|:--|
 |ender_chest_ui.mode|現在のモード|
-|ender_chest_ui.action|実行するアクション。-1~65536|
+|ender_chest_ui.action|実行するアクション。-1~65535|
 
 ### Event Handler
 
