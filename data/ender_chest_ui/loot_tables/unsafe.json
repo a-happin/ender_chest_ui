@@ -1,0 +1,58 @@
+{
+  "pools": [
+    {
+      "rolls": 27,
+      "entries": [
+        {
+          "type": "item",
+          "name": "barrier",
+          "functions": [
+            {
+              "function": "set_nbt",
+              "tag": "{ender_chest_ui: {unsafe: 1b}}"
+            },
+            {
+              "function": "set_name",
+              "entity": "this",
+              "name": [
+                {"text": "Error!!", "color": "red", "italic": false}
+              ]
+            },
+            {
+              "function": "set_lore",
+              "entity": "this",
+              "lore": [
+                [
+                  {"text": "restoreに失敗しました", "color": "red", "italic": false}
+                ],
+                [
+                  {"text": ""}
+                ],
+                [
+                  {"text": "[デバッグ情報]", "color": "red", "italic": false}
+                ],
+                [
+                  {"text": "● action = ", "color": "red", "italic": false},
+                  {"score": {"name": "@s", "objective": "ender_chest_ui.action"}}
+                ],
+                [
+                  {"text": "● mode = ", "color": "red", "italic": false},
+                  {"score": {"name": "@s", "objective": "ender_chest_ui.mode"}}
+                ],
+                [
+                  {"text": "● EnderItems = null", "color": "red", "italic": false}
+                ],
+                [
+                  {"text": ""}
+                ],
+                [
+                  {"text": "[ender_chest_ui]", "color": "dark_gray", "italic": false}
+                ]
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

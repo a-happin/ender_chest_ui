@@ -1,0 +1,59 @@
+{
+  "criteria": {
+    "no_sneaking": {
+      "trigger": "item_used_on_block",
+      "conditions": {
+        "location": {
+          "block": {
+            "blocks": [
+              "ender_chest"
+            ]
+          }
+        },
+        "player": [
+          {
+            "condition": "inverted",
+            "term": {
+              "condition": "entity_scores",
+              "entity": "this",
+              "scores": {
+                "player.time.sneak_time": {
+                  "min": 1
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "with_sneaking": {
+      "trigger": "item_used_on_block",
+      "conditions": {
+        "location": {
+          "block": {
+            "blocks": [
+              "ender_chest"
+            ]
+          }
+        },
+        "player": [
+          {
+            "condition": "entity_scores",
+            "entity": "this",
+            "scores": {
+              "player.time.sneak_time": {
+                "min": 1
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    ["no_sneaking", "with_sneaking"]
+  ],
+  "rewards": {
+    "function": "ender_chest_ui:handler/opened_ender_chest"
+  }
+}

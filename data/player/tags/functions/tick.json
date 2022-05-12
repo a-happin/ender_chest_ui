@@ -1,5 +1,5 @@
 {
   "values": [
-    "ecui:core/tick"
+    "ender_chest_ui:handler/tick"
   ]
 }

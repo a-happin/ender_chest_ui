@@ -1,0 +1,32 @@
+#> ender_chest_ui:main/save
+#@within tag/function ender_chest_ui:dispatch/save
+
+## アクション発火用アイテムを除外する
+
+execute if entity @s[advancements={ender_chest_ui:slot={0=false}}] if data storage : _[-1].EnderItems[{Slot: 0b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 0b}]
+execute if entity @s[advancements={ender_chest_ui:slot={1=false}}] if data storage : _[-1].EnderItems[{Slot: 1b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 1b}]
+execute if entity @s[advancements={ender_chest_ui:slot={2=false}}] if data storage : _[-1].EnderItems[{Slot: 2b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 2b}]
+execute if entity @s[advancements={ender_chest_ui:slot={3=false}}] if data storage : _[-1].EnderItems[{Slot: 3b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 3b}]
+execute if entity @s[advancements={ender_chest_ui:slot={4=false}}] if data storage : _[-1].EnderItems[{Slot: 4b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 4b}]
+execute if entity @s[advancements={ender_chest_ui:slot={5=false}}] if data storage : _[-1].EnderItems[{Slot: 5b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 5b}]
+execute if entity @s[advancements={ender_chest_ui:slot={6=false}}] if data storage : _[-1].EnderItems[{Slot: 6b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 6b}]
+execute if entity @s[advancements={ender_chest_ui:slot={7=false}}] if data storage : _[-1].EnderItems[{Slot: 7b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 7b}]
+execute if entity @s[advancements={ender_chest_ui:slot={8=false}}] if data storage : _[-1].EnderItems[{Slot: 8b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 8b}]
+execute if entity @s[advancements={ender_chest_ui:slot={9=false}}] if data storage : _[-1].EnderItems[{Slot: 9b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 9b}]
+execute if entity @s[advancements={ender_chest_ui:slot={10=false}}] if data storage : _[-1].EnderItems[{Slot: 10b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 10b}]
+execute if entity @s[advancements={ender_chest_ui:slot={11=false}}] if data storage : _[-1].EnderItems[{Slot: 11b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 11b}]
+execute if entity @s[advancements={ender_chest_ui:slot={12=false}}] if data storage : _[-1].EnderItems[{Slot: 12b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 12b}]
+execute if entity @s[advancements={ender_chest_ui:slot={13=false}}] if data storage : _[-1].EnderItems[{Slot: 13b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 13b}]
+execute if entity @s[advancements={ender_chest_ui:slot={14=false}}] if data storage : _[-1].EnderItems[{Slot: 14b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 14b}]
+execute if entity @s[advancements={ender_chest_ui:slot={15=false}}] if data storage : _[-1].EnderItems[{Slot: 15b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 15b}]
+execute if entity @s[advancements={ender_chest_ui:slot={16=false}}] if data storage : _[-1].EnderItems[{Slot: 16b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 16b}]
+execute if entity @s[advancements={ender_chest_ui:slot={17=false}}] if data storage : _[-1].EnderItems[{Slot: 17b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 17b}]
+execute if entity @s[advancements={ender_chest_ui:slot={18=false}}] if data storage : _[-1].EnderItems[{Slot: 18b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 18b}]
+execute if entity @s[advancements={ender_chest_ui:slot={19=false}}] if data storage : _[-1].EnderItems[{Slot: 19b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 19b}]
+execute if entity @s[advancements={ender_chest_ui:slot={20=false}}] if data storage : _[-1].EnderItems[{Slot: 20b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 20b}]
+execute if entity @s[advancements={ender_chest_ui:slot={21=false}}] if data storage : _[-1].EnderItems[{Slot: 21b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 21b}]
+execute if entity @s[advancements={ender_chest_ui:slot={22=false}}] if data storage : _[-1].EnderItems[{Slot: 22b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 22b}]
+execute if entity @s[advancements={ender_chest_ui:slot={23=false}}] if data storage : _[-1].EnderItems[{Slot: 23b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 23b}]
+execute if entity @s[advancements={ender_chest_ui:slot={24=false}}] if data storage : _[-1].EnderItems[{Slot: 24b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 24b}]
+execute if entity @s[advancements={ender_chest_ui:slot={25=false}}] if data storage : _[-1].EnderItems[{Slot: 25b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 25b}]
+execute if entity @s[advancements={ender_chest_ui:slot={26=false}}] if data storage : _[-1].EnderItems[{Slot: 26b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 26b}]

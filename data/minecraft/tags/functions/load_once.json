@@ -1,5 +1,5 @@
 {
   "values": [
-    "ecui:core/load_once"
+    "ender_chest_ui:load_once"
   ]
 }

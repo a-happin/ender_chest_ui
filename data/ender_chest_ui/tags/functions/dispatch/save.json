@@ -1,0 +1,6 @@
+{
+  "values": [
+    "ender_chest_ui:main/save",
+    {"id": "#ender_chest_ui:save", "required": false}
+  ]
+}
