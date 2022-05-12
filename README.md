@@ -82,10 +82,6 @@ function ender_chest_ui:convert_ender_chest_ui_to_binary
 # ==> Item: {id: "light_gray_stained_glass_pane", Count: 1b, tag: {ender_chest_ui: {512: 1b, 256: 1b, 128: 1b, 64: 1b, 32: 1b, 8: 1b}}}
 ```
 
-### メニュー用のアイテムの生成方法
-
-- `storage`からアイテムを構築する(おすすめ)
-
 ## Usage
 
 ### Example
