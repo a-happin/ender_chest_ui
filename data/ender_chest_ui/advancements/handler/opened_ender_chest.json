@@ -36,6 +36,11 @@
             ]
           }
         },
+        "item": {
+          "items": [
+            "air"
+          ]
+        },
         "player": [
           {
             "condition": "entity_scores",
