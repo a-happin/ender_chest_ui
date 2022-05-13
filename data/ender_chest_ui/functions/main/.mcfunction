@@ -1,7 +1,8 @@
 #> ender_chest_ui:main/
 #@within
 #  function ender_chest_ui:handler/opened_ender_chest
-#  tag/function ender_chest_ui:dispatch/main
+#  function ender_chest_ui:handler/selected/picked_up
+#  function ender_chest_ui:handler/selected/dropped
 
 data modify storage : _ append value {Items: []}
   ## rescue items in ender_chest_ui
@@ -34,10 +35,10 @@ data modify storage : _ append value {Items: []}
   execute if entity @s[advancements={ender_chest_ui:slot={25=true}}] unless data storage : _[-1].EnderItems[{Slot: 25b}].tag.ender_chest_ui if data storage : _[-1].EnderItems[{Slot: 25b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 25b}]
   execute if entity @s[advancements={ender_chest_ui:slot={26=true}}] unless data storage : _[-1].EnderItems[{Slot: 26b}].tag.ender_chest_ui if data storage : _[-1].EnderItems[{Slot: 26b}] run data modify storage : _[-1].Items append from storage : _[-1].EnderItems[{Slot: 26b}]
   execute if data storage : _[-1].Items[-1] run function ender_chest_ui:rescue_items/
-  
+
   ## dispatch save
   execute if entity @s[advancements={ender_chest_ui:is_unsafe=false}] run function #ender_chest_ui:dispatch/save
-  
+
   ## dispatch action
   ### unsafe => action = -1(opened_ender_chest) // -2でもいいけどまあ-1にすると使いやすそう
   execute if entity @s[advancements={ender_chest_ui:is_unsafe=true}] run scoreboard players set @s ender_chest_ui.action -1

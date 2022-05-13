@@ -1,5 +1,5 @@
-#> ender_chest_ui:main/calc_action_id
-#@within tag/function ender_chest_ui:dispatch/main
+#> ender_chest_ui:handler/selected/picked_up
+#@within function ender_chest_ui:handler/tick
 
 ## restore ender_chest_ui.action
 scoreboard players set @s ender_chest_ui.action 0
@@ -55,3 +55,6 @@ execute if score $ ender_chest_ui.action matches 1.. run scoreboard players add 
 
 ## clear item
 clear @s #ender_chest_ui:any{ender_chest_ui: {}}
+
+## dispatch
+function ender_chest_ui:main/

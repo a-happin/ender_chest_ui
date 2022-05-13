@@ -77,9 +77,9 @@ This executes `/clear` every tick, which may result in low datapack performance.
 
 ```mcfunction
 data modify storage : _[-1].Item set value {id: "light_gray_stained_glass_pane", Count: 1b}
-data modify storage : _[-1].Item.tag.ender_chest_ui set value 1000
+data modify storage : _[-1].Item.tag.ender_chest_ui.id set value 1000
 function ender_chest_ui:convert_ender_chest_ui_to_binary
-# ==> Item: {id: "light_gray_stained_glass_pane", Count: 1b, tag: {ender_chest_ui: {512: 1b, 256: 1b, 128: 1b, 64: 1b, 32: 1b, 8: 1b}}}
+# ==> Item: {id: "light_gray_stained_glass_pane", Count: 1b, tag: {ender_chest_ui: {id: 1000, 512: 1b, 256: 1b, 128: 1b, 64: 1b, 32: 1b, 8: 1b}}}
 ```
 
 ## Usage
@@ -112,6 +112,7 @@ execute if entity @s[scores={ender_chest_ui.mode=1}] run function example:ender_
 
 - [player.tick](https://github.com/a-happin/player-datapacks/tree/master/01.player.tick)
 - [player.sneak_time](https://github.com/a-happin/player-datapacks/tree/master/10.player.sneak_time)
+- [player.dropped](https://github.com/a-happin/player-datapacks/tree/master/10.player.dropped)
 
 ## Installation
 
