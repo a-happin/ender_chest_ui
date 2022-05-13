@@ -49,7 +49,7 @@ This executes `/clear` every tick, which may result in low datapack performance.
 - エンダーチェスト内にアイテムを配置するべきタイミングで呼ばれます
 - scoreboard `score @s ender_chest_ui.mode`の値に応じて`storage : _[-1].EnderItems`を更新し、エンダーチェスト内のアイテムも書き換えてください
 - `storage : _[-1].EnderItems`とエンダーチェストの中身が同じになるようにしてください
-  - 不整合が起きるとrescue関連がバグる可能性があります…
+  - 不整合が起きると保護機能がバグります…
 - 27スロット全て変更してください
   - restore直前のエンダーチェストの中身が適切であることを期待してはいけません
 - このデータパックはエンダーチェストの中身を書き換える方法を提供しません
