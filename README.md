@@ -111,9 +111,9 @@ execute if entity @s[scores={ender_chest_ui.mode=1}] run function example:ender_
 ## Requirement
 
 - Minecraft JE 1.19
-- [player.tick](https://github.com/a-happin/player-datapacks/tree/master/01.player.tick)
-- [player.sneak_time](https://github.com/a-happin/player-datapacks/tree/master/10.player.sneak_time)
-- [player.dropped](https://github.com/a-happin/player-datapacks/tree/master/10.player.dropped)
+- [player.tick](https://github.com/a-happin/player-datapacks/tree/master/10.player.tick)
+- [player.sneak_time](https://github.com/a-happin/player-datapacks/tree/master/20.player.sneak_time)
+- [player.dropped](https://github.com/a-happin/player-datapacks/tree/master/20.player.dropped)
 
 ## Installation
 
